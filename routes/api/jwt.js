@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const DB = require('../../models')
 const passwordUtil = require('../../utils/password')
+const jwtUtil = require('../../utils/jwt')
 const uuidv4 = require('uuid/v4')
 
 router.post('/login', async (req, res) => {
@@ -9,7 +10,8 @@ router.post('/login', async (req, res) => {
     const user = await DB.users.findOne({
       where: {
         username
-      }
+      },
+      raw: true
     })
 
     if (!user || !await passwordUtil.compare(password, user.password)) {
@@ -28,7 +30,7 @@ router.post('/login', async (req, res) => {
     if (session) {
       session.clientId = clientId
       session.refreshToken = refresh_token
-      await sessions.save()
+      await session.save()
     } else {
       session = await DB.sessions.create({
         userId: user.id,
@@ -39,7 +41,7 @@ router.post('/login', async (req, res) => {
 
     // remove password hash from user object
     delete user.password
-    const token = jwt.generate({
+    const token = jwtUtil.generate({
       ...user,
       clientId
     })
@@ -71,11 +73,12 @@ router.post('/refresh', async (req, res) => {
     const user = await DB.users.findOne({
       where: {
         id: session.userId
-      }
+      },
+      raw: true
     })
 
     res.json({
-      token: jwt.generate({
+      token: jwtUtil.generate({
         ...user,
         clientId: session.clientId
       }),

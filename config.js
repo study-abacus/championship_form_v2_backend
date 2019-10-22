@@ -26,6 +26,6 @@ module.exports = {
     "operatorsAliases": false
   },
   "JWT_TIMEOUT": "10m",
-  "PRIVATE_KEY": path.join (__dirname,'../keys/jwtRS256.key'),
-  "PUBLIC_KEY": path.join (__dirname,'../keys/jwtRS256.key.pub')
+  "PRIVATE_KEY": path.join (__dirname,'/keys/jwtRS256.key'),
+  "PUBLIC_KEY": path.join (__dirname,'/keys/jwtRS256.key.pub')
 }

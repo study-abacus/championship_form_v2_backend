@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
-const config = require('../config/config.js/index.js')
+const config = require('../config')
 
 const generate = (payload, timeout = config.JWT_TIMEOUT) => {
   const privKey = fs.readFileSync(config.PRIVATE_KEY)

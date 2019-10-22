@@ -9,7 +9,7 @@ module.exports = {
         autoIncrement: true
       },
       clientId: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING,
         allowNull: false
       },
       refreshToken: {

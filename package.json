@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "sequelize": "sequelize",
-    "migrate-up": "sequelize --config=./config/config.js  db:migrate",
-    "migrate-down": "sequelize --config=./config/config.js  db:migrate:undo"
+    "migrate-up": "sequelize --config=config.js  db:migrate",
+    "migrate-down": "sequelize --config=config.js  db:migrate:undo"
   },
   "dependencies": {
     "@coding-blocks/express-jsonapi-controller": "^1.0.5",
