@@ -5,8 +5,8 @@ module.exports = (included, type, config) => {
 
   if (type === 'deserialize') {
     return {
+      keyForAttribute: 'camelCase',
       teachers: {
-        keyForAttributes: 'camelCase',
         valueForRelationship(relationship) {
           return {
             id: relationship.id

@@ -1,6 +1,6 @@
 const { Controller: BaseController } = require('@coding-blocks/express-jsonapi-controller')
 const DB = require('../../../models')
-const serializer = require('../../../serializers/teachers')
+const serializer = require('../../../serializers/teacher')
 
 class TeacherController extends BaseController {}
 

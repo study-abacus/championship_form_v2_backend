@@ -1,4 +1,4 @@
-const I = require('i')
+const I = require('i')()
 
 const getIncludedSerializerConfig = (included) => {
   if (!included)
