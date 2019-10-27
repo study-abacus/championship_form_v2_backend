@@ -3,7 +3,8 @@ const router = require('express').Router()
 router.use('*', (req, res, next)=>{
   const allowedOrigins = [
     'http://localhost:4201', 
-    'http://localhost:4200'
+    'http://localhost:4200',
+    'http://championship.studyabacus.com'
   ]
   const origin = req.get('Origin')
   if (allowedOrigins.indexOf(origin) > -1)
