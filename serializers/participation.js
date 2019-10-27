@@ -6,29 +6,34 @@ module.exports = (included, type, config) => {
   if (type === 'deserialize') {
     return {
       keyForAttribute: 'camelCase',
-      teachers: {
+      exams: {
         valueForRelationship(relationship) {
           return {
             id: relationship.id
           }
         }
-      } 
+      },
+      participants: {
+        valueForRelationship(relationship) {
+          return {
+            id: relationship.id
+          }
+        }
+      }
     }
   }
 
   return {
     attributes: [
       "id",
-      "name",
-      "studentId",
-      "tShirtSize",
-      "teacher",
-      "participations"
+      "accepted",
+      "exam",
+      "participant"
     ],
-    teacher: {
+    exam: {
       ref: 'id'
     },
-    participations: {
+    participant: {
       ref: 'id'
     },
     ...config,
