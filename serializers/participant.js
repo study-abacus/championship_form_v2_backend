@@ -31,6 +31,9 @@ module.exports = (included, type, config) => {
     participations: {
       ref: 'id'
     },
+    meta: {
+      pagination: record => record.pagination
+    },
     ...config,
     ...includedConfig,
   };

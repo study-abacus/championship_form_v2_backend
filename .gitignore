@@ -81,3 +81,5 @@ typings/
 keys/
 
 tmp/
+
+ecosystem.config.js

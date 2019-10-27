@@ -1,19 +1,11 @@
 const path = require('path')
 
 module.exports = {
-  "development": {
-    "username": "championship",
-    "password": "championship",
-    "database": "championship-db",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+  "DB": {
+    "username": process.env.DB_USER || "championship",
+    "password": process.env.DB_PASS || "championship",
+    "database": process.env.DB_DB || "championship-db",
+    "host": process.env.DB_HOST || "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
   },
