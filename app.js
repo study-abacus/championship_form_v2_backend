@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const passport = require('passport')
 const mainRouter = require('./routes/index');
 const corsRouter = require('./cors')
 
@@ -18,6 +18,9 @@ app.use(express.json({limit: '100mb' , type : 'application/json'}));
 app.use(express.json({limit: '100mb' , type : 'application/vnd.api+json'}));
 app.use(express.urlencoded({limit: '100mb', extended: true}));
 app.use(cookieParser());
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(corsRouter)
 
